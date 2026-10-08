@@ -3,648 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CD | Web Design Studio</title>
-  <meta name="description" content="CD creates high-converting websites for brands that want to stand out online." />
+  <title>CD Studio | Premium Web Design</title>
+  <meta name="description" content="CD creates strategic, premium websites that help brands attract attention and convert clients." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg: #0b0d12;
-      --bg-soft: #121722;
-      --panel: #171d2a;
-      --panel-2: #1f2635;
-      --text: #eef4ff;
-      --muted: #a9b4c7;
-      --primary: #7c8cff;
-      --primary-2: #a78bfa;
-      --accent: #7ef0d6;
-      --line: rgba(255,255,255,0.08);
-      --shadow: 0 20px 60px rgba(14,17,25,0.45);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: linear-gradient(180deg, var(--bg) 0%, #0f121b 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-    button, input, textarea { font: inherit; }
-
-    .container {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(11, 13, 18, 0.65);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 80px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      font-size: 1rem;
-      text-transform: uppercase;
-    }
-
-    .logo-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      color: white;
-      box-shadow: var(--shadow);
-      font-weight: 900;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 12px;
-      font-weight: 700;
-      transition: 0.2s ease;
-      border: 1px solid transparent;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      color: white;
-      box-shadow: 0 18px 40px rgba(124, 140, 255, 0.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 22px 44px rgba(124, 140, 255, 0.45);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.02);
-      border-color: var(--line);
-      color: var(--text);
-    }
-
-    .hero {
-      padding: 90px 0 70px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 18% 20%, rgba(124,140,255,0.16), transparent 32%),
-        radial-gradient(circle at 80% 10%, rgba(126,240,214,0.18), transparent 30%),
-        radial-gradient(circle at 50% 60%, rgba(167,139,250,0.12), transparent 35%);
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 54px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(124, 140, 255, 0.4);
-      background: rgba(124, 140, 255, 0.08);
-      color: #dfe5ff;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.8rem, 5vw, 5rem);
-      line-height: 1.04;
-      letter-spacing: -0.06em;
-      max-width: 600px;
-    }
-
-    .hero-copy p {
-      margin: 24px 0 30px;
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 560px;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .mini-stats {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .mini-stats strong {
-      display: block;
-      font-size: 1.5rem;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .hero-visual {
-      position: relative;
-      padding: 22px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .dashboard {
-      background: linear-gradient(180deg, rgba(18,23,34,0.92), rgba(17,20,29,0.96));
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      overflow: hidden;
-    }
-
-    .dashboard-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    .dots {
-      display: flex;
-      gap: 8px;
-    }
-
-    .dots span {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .dots span:nth-child(1) { background: #ff5f57; }
-    .dots span:nth-child(2) { background: #ffbd2e; }
-    .dots span:nth-child(3) { background: #28c840; }
-
-    .dashboard-body { padding: 18px; }
-
-    .chart-card {
-      background: linear-gradient(180deg, rgba(124,140,255,0.12), rgba(124,140,255,0.02));
-      border: 1px solid rgba(124,140,255,0.28);
-      border-radius: 18px;
-      padding: 18px;
-      margin-bottom: 18px;
-    }
-
-    .chart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .bars {
-      height: 120px;
-      display: flex;
-      align-items: end;
-      gap: 12px;
-      padding-top: 12px;
-    }
-
-    .bars span {
-      display: block;
-      flex: 1;
-      border-radius: 10px 10px 0 0;
-      background: linear-gradient(180deg, var(--primary), var(--primary-2));
-      box-shadow: 0 18px 38px rgba(124, 140, 255, 0.28);
-    }
-
-    .bars span:nth-child(1) { height: 35%; }
-    .bars span:nth-child(2) { height: 58%; }
-    .bars span:nth-child(3) { height: 44%; }
-    .bars span:nth-child(4) { height: 70%; }
-    .bars span:nth-child(5) { height: 92%; }
-    .bars span:nth-child(6) { height: 81%; }
-
-    .info-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .small-panel {
-      background: rgba(255,255,255,0.025);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 18px;
-    }
-
-    .small-panel h4 {
-      margin: 0 0 8px;
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 600;
-    }
-
-    .metric {
-      font-size: 1.7rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-    }
-
-    .metric small { font-size: 0.8rem; color: var(--accent); }
-
-    .section {
-      padding: 90px 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 30px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(2rem, 3vw, 3rem);
-      letter-spacing: -0.05em;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 520px;
-    }
-
-    .services-grid,
-    .work-grid,
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 26px;
-      box-shadow: var(--shadow);
-    }
-
-    .service-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(124,140,255,0.2), rgba(126,240,214,0.2));
-      border: 1px solid rgba(124,140,255,0.3);
-      font-size: 1.5rem;
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      margin: 0 0 12px;
-      font-size: 1.3rem;
-    }
-
-    .card p {
-      margin: 0 0 18px;
-      color: var(--muted);
-    }
-
-    .card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      color: var(--text);
-      display: grid;
-      gap: 10px;
-      font-size: 0.95rem;
-    }
-
-    .card ul li::before {
-      content: "•";
-      color: var(--accent);
-      margin-right: 8px;
-    }
-
-    .process {
-      background: rgba(255,255,255,0.015);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .step {
-      position: relative;
-      padding: 30px 22px 22px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.02);
-    }
-
-    .step-number {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-
-    .step h3 {
-      margin: 0 0 8px;
-      font-size: 1.1rem;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .work-card {
-      overflow: hidden;
-      padding: 0;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .work-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 60px rgba(124, 140, 255, 0.25);
-    }
-
-    .work-visual {
-      height: 220px;
-      background-size: cover;
-      background-position: center;
-      border-bottom: 1px solid var(--line);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .work-visual::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(11, 13, 18, 0.3);
-      transition: opacity 0.3s ease;
-    }
-
-    .work-visual:hover::before {
-      opacity: 0;
-    }
-
-    .work-content {
-      padding: 22px 22px 24px;
-    }
-
-    .work-content h3 {
-      margin: 0 0 10px;
-      font-size: 1.25rem;
-    }
-
-    .work-content p {
-      margin: 0 0 18px;
-      color: var(--muted);
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(124,140,255,0.1);
-      border: 1px solid rgba(124,140,255,0.2);
-      color: #dfe5ff;
-      font-size: 0.74rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 22px;
-    }
-
-    .quote {
-      padding: 26px;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.02);
-    }
-
-    .quote p {
-      color: var(--text);
-      margin: 0 0 20px;
-      font-size: 1rem;
-    }
-
-    .person {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-    }
-
-    .person small {
-      display: block;
-      color: var(--muted);
-    }
-
-    .cta {
-      padding: 90px 0 110px;
-    }
-
-    .cta-box {
-      background: linear-gradient(135deg, rgba(124,140,255,0.16), rgba(126,240,214,0.07));
-      border: 1px solid rgba(124,140,255,0.25);
-      border-radius: 28px;
-      padding: 40px 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .cta-box h2 {
-      margin: 0 0 10px;
-      font-size: clamp(2rem, 3vw, 3rem);
-      letter-spacing: -0.05em;
-    }
-
-    .cta-box p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 26px 0 50px;
-      color: var(--muted);
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 960px) {
-      .hero-grid,
-      .services-grid,
-      .work-grid,
-      .testimonials,
-      .team-grid,
-      .process-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-      .cta-box {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-      }
-      .services-grid,
-      .work-grid,
-      .testimonials,
-      .team-grid,
-      .process-grid,
-      .info-row {
-        grid-template-columns: 1fr;
-      }
-      .section-head {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav-actions .btn-secondary {
-        display: none;
-      }
-      .hero {
-        padding-top: 60px;
-      }
-      .cta-box {
-        padding: 28px 20px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
   <header class="topbar">
     <div class="container nav">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo" aria-label="CD Studio home">
         <span class="logo-mark">CD</span>
         <span>CD Studio</span>
       </a>
 
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <a class="btn btn-secondary" href="#about">More Info</a>
-        <a class="btn btn-primary" href="#contact">Book a Call</a>
+        <a class="btn btn-secondary" href="about.html">More Info</a>
+        <a class="btn btn-primary" href="contact.html">Book a Call</a>
       </div>
     </div>
   </header>
@@ -653,30 +37,30 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Custom website design</span>
-          <h1>Websites that turn attention into action.</h1>
+          <span class="eyebrow">Premium website design</span>
+          <h1>Websites that elevate your brand and win clients.</h1>
           <p>
-            CD creates premium websites for businesses that want to look credible,
-            attract better clients, and grow faster online.
+            We design bold, conversion-focused websites for businesses that want to stand out,
+            look credible, and grow faster online.
           </p>
 
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
-            <a href="#work" class="btn btn-secondary">View Our Work</a>
+            <a href="contact.html" class="btn btn-primary">Get a Free Quote</a>
+            <a href="work.html" class="btn btn-secondary">See Our Work</a>
           </div>
 
           <div class="mini-stats">
             <div>
               <strong>120+</strong>
-              projects launched
+              launches
             </div>
             <div>
               <strong>4.9/5</strong>
-              average client rating
+              satisfaction
             </div>
             <div>
               <strong>2-4x</strong>
-              better conversion focus
+              better conversion
             </div>
           </div>
         </div>
@@ -689,14 +73,14 @@
                 <span></span>
                 <span></span>
               </div>
-              <span>CD performance dashboard</span>
+              <span>Growth dashboard</span>
             </div>
 
             <div class="dashboard-body">
               <div class="chart-card">
                 <div class="chart-header">
                   <span>Monthly growth</span>
-                  <strong style="color: var(--accent);">+38.4%</strong>
+                  <strong>+38.4%</strong>
                 </div>
                 <div class="bars">
                   <span></span>
@@ -710,11 +94,11 @@
 
               <div class="info-row">
                 <div class="small-panel">
-                  <h4>Qualified Leads</h4>
+                  <h4>Qualified leads</h4>
                   <div class="metric">1.2k <small>+24%</small></div>
                 </div>
                 <div class="small-panel">
-                  <h4>Avg. Session</h4>
+                  <h4>Avg. session</h4>
                   <div class="metric">4m 38s</div>
                 </div>
               </div>
@@ -728,79 +112,76 @@
       <div class="container">
         <div class="section-head">
           <h2>What we build</h2>
-          <p>
-            We create websites that feel refined, perform fast, and help your business
-            turn visitors into paying clients.
-          </p>
+          <p>Beautiful, strategic websites that translate attention into measurable business growth.</p>
         </div>
 
         <div class="services-grid">
-          <div class="card">
+          <article class="card">
             <div class="service-icon">✦</div>
             <h3>Brand Websites</h3>
-            <p>Modern, professional websites tailored to your brand identity and target audience.</p>
+            <p>Premium websites created to match your vision and convert your ideal clients.</p>
             <ul>
-              <li>Luxury positioning</li>
-              <li>Clear messaging</li>
-              <li>Lead-focused layouts</li>
+              <li>Modern visual identity</li>
+              <li>Confident messaging</li>
+              <li>Client-ready experience</li>
             </ul>
-          </div>
+          </article>
 
-          <div class="card">
+          <article class="card">
             <div class="service-icon">▣</div>
             <h3>Landing Pages</h3>
-            <p>Conversion-driven pages that focus on one clear action and remove friction.</p>
+            <p>Focused pages designed to create urgency, improve conversions, and capture demand.</p>
             <ul>
-              <li>High-converting copy</li>
-              <li>CTA optimization</li>
+              <li>High-converting layouts</li>
+              <li>Clear calls to action</li>
               <li>Fast mobile performance</li>
             </ul>
-          </div>
+          </article>
 
-          <div class="card">
+          <article class="card">
             <div class="service-icon">⚡</div>
-            <h3>Business Growth Sites</h3>
-            <p>Website experiences designed to help you look trusted and sell with confidence.</p>
+            <h3>Growth Sites</h3>
+            <p>Digital experiences built to establish trust and move visitors toward action.</p>
             <ul>
               <li>SEO-ready structure</li>
-              <li>Trust-building design</li>
-              <li>Analytics and tracking</li>
+              <li>UX and speed optimization</li>
+              <li>Lead-focused design</li>
             </ul>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section process" id="process">
+    <section class="section process">
       <div class="container">
         <div class="section-head">
-          <h2>A clear process</h2>
-          <p>Every project is shaped around business goals, clarity, and a premium online presence.</p>
+          <h2>A simple process</h2>
+          <p>We keep every project focused, collaborative, and aligned to your business goals.</p>
         </div>
 
         <div class="process-grid">
           <div class="step">
             <div class="step-number">01</div>
             <h3>Discovery</h3>
-            <p>We define your goals, audience, and brand direction before any design begins.</p>
+            <p>We clarify your offer, audience, and visual direction before building anything.</p>
           </div>
 
           <div class="step">
             <div class="step-number">02</div>
             <h3>Design</h3>
-            <p>We create a sleek visual system that matches your positioning and customer experience.</p>
+            <p>We craft a premium identity and user experience tailored to your market.</p>
           </div>
 
           <div class="step">
             <div class="step-number">03</div>
             <h3>Build</h3>
-            <p>Your site is developed with speed, responsiveness, and conversion in mind.</p>
+            <p>Your site is developed with conversion, clarity, and speed at the forefront.</p>
           </div>
 
           <div class="step">
             <div class="step-number">04</div>
             <h3>Launch</h3>
-            <p>We optimize, test, and launch your site so it performs beautifully from day one.</p>
+            <p>We test, refine, and help you launch smoothly with confidence.</p>
           </div>
         </div>
       </div>
@@ -810,34 +191,34 @@
       <div class="container">
         <div class="section-head">
           <h2>Selected work</h2>
-          <p>We build digital experiences that make brands feel memorable and trustworthy.</p>
+          <p>Recent projects built to help ambitious businesses appear more credible and convert better.</p>
         </div>
 
         <div class="work-grid">
           <article class="card work-card">
-            <div class="work-visual" style="background-image: linear-gradient(135deg, rgba(124,140,255,0.4), rgba(126,240,214,0.2)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%234a5f9f%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2232%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3ENorthlane Studio%3C/text%3E%3Cpath stroke=%22white%22 stroke-width=%222%22 fill=%22none%22 d=%22M80,100 L100,80 L120,110 L140,85 L160,120%22 opacity=%220.6%22/%3E%3C/svg%3E'); background-size: cover; background-position: center;"></div>
+            <div class="work-visual" style="background-image: linear-gradient(135deg, rgba(124,140,255,0.45), rgba(126,240,214,0.2)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%233e4e87%22/%3E%3Crect x=%2250%22 y=%2255%22 width=%22300%22 height=%22180%22 rx=%2212%22 fill=%22rgba(255,255,255,0.09)%22 stroke=%22white%22 stroke-width=%222%22/%3E%3Ccircle cx=%22105%22 cy=%2295%22 r=%225%22 fill=%22white%22/%3E%3Crect x=%22130%22 y=%2285%22 width=%2265%22 height=%227%22 rx=%223.5%22 fill=%22white%22 opacity=%220.8%22/%3E%3Crect x=%22130%22 y=%2298%22 width=%22120%22 height=%227%22 rx=%223.5%22 fill=%22white%22 opacity=%220.5%22/%3E%3Crect x=%2280%22 y=%22140%22 width=%2235%22 height=%2235%22 rx=%2210%22 fill=%22%237ef0d6%22 opacity=%220.8%22/%3E%3Crect x=%22130%22 y=%22140%22 width=%2245%22 height=%2235%22 rx=%2210%22 fill=%22%237c8cff%22 opacity=%220.75%22/%3E%3Crect x=%22190%22 y=%22140%22 width=%2245%22 height=%2235%22 rx=%2210%22 fill=%22%23a78bfa%22 opacity=%220.75%22/%3E%3C/svg%3E');"></div>
             <div class="work-content">
-              <span class="tag">Brand Site</span>
+              <span class="tag">Brand site</span>
               <h3>Northlane Studio</h3>
-              <p>Elevated visual identity for a creative agency that wanted a more premium digital presence.</p>
+              <p>A refined digital identity for a creative studio with a stronger premium positioning.</p>
             </div>
           </article>
 
           <article class="card work-card">
-            <div class="work-visual" style="background-image: linear-gradient(135deg, rgba(126,240,214,0.35), rgba(124,140,255,0.25)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%232d5a4a%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2232%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EFlowPilot%3C/text%3E%3Ccircle cx=%2250%25%22 cy=%2270%25%22 r=%2240%22 fill=%22none%22 stroke=%22white%22 stroke-width=%223%22 opacity=%220.6%22/%3E%3C/svg%3E'); background-size: cover; background-position: center;"></div>
+            <div class="work-visual" style="background-image: linear-gradient(135deg, rgba(126,240,214,0.35), rgba(124,140,255,0.25)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%233d5c5d%22/%3E%3Crect x=%2250%22 y=%2258%22 width=%22300%22 height=%22170%22 rx=%2215%22 fill=%22rgba(255,255,255,0.06)%22 stroke=%22white%22 stroke-width=%222%22/%3E%3Ccircle cx=%22155%22 cy=%22115%22 r=%2250%22 fill=%22none%22 stroke=%22white%22 stroke-width=%223%22 opacity=%220.7%22/%3E%3Cpath d=%22M160,150 L220,185 L280,125%22 stroke=%22white%22 stroke-width=%224%22 fill=%22none%22 opacity=%220.7%22/%3E%3Crect x=%22110%22 y=%22195%22 width=%22210%22 height=%2210%22 fill=%22white%22 opacity=%220.6%22/%3E%3C/svg%3E');"></div>
             <div class="work-content">
-              <span class="tag">SaaS Launch</span>
+              <span class="tag">SaaS launch</span>
               <h3>FlowPilot</h3>
-              <p>Explainer-focused site built to help a growing software brand communicate value quickly.</p>
+              <p>An online presence built to translate product value into quick interest and informed leads.</p>
             </div>
           </article>
 
           <article class="card work-card">
-            <div class="work-visual" style="background-image: linear-gradient(135deg, rgba(167,139,250,0.35), rgba(124,140,255,0.2)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%235a4a7a%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2232%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EVita Motion%3C/text%3E%3Crect x=%2250%22 y=%22110%22 width=%22300%22 height=%2240%22 fill=%22white%22 opacity=%220.3%22/%3E%3C/svg%3E'); background-size: cover; background-position: center;"></div>
+            <div class="work-visual" style="background-image: linear-gradient(135deg, rgba(167,139,250,0.35), rgba(124,140,255,0.2)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23514d74%22/%3E%3Crect x=%2250%22 y=%2262%22 width=%22300%22 height=%22218%22 rx=%2214%22 fill=%22rgba(255,255,255,0.06)%22 stroke=%22white%22 stroke-width=%222%22/%3E%3Crect x=%2285%22 y=%22100%22 width=%2245%22 height=%2245%22 rx=%2213%22 fill=%22%237ef0d6%22 opacity=%220.8%22/%3E%3Crect x=%22145%22 y=%22100%22 width=%22120%22 height=%2210%22 fill=%22white%22 opacity=%220.7%22/%3E%3Crect x=%22145%22 y=%22122%22 width=%2290%22 height=%2210%22 fill=%22white%22 opacity=%220.45%22/%3E%3Crect x=%2285%22 y=%22165%22 width=%22310%22 height=%2290%22 rx=%2212%22 fill=%22%237c8cff%22 opacity=%220.65%22/%3E%3C/svg%3E');"></div>
             <div class="work-content">
               <span class="tag">Healthcare</span>
               <h3>Vita Motion</h3>
-              <p>Clean, trust-first website designed to help patients understand services and book faster.</p>
+              <p>Trust-first digital storytelling for a healthcare brand focused on patient confidence and bookings.</p>
             </div>
           </article>
         </div>
@@ -848,27 +229,27 @@
       <div class="container">
         <div class="section-head">
           <h2>Why businesses choose CD</h2>
-          <p>We merge strategy, aesthetics, and performance to create sites that are as effective as they are polished.</p>
+          <p>We combine strategy, design, and conversion thinking to create websites with real commercial value.</p>
         </div>
 
         <div class="services-grid">
-          <div class="card">
+          <article class="card">
             <div class="service-icon">◎</div>
-            <h3>Strategy-led design</h3>
-            <p>We design around your business goals, customer journey, and conversion priorities.</p>
-          </div>
+            <h3>Strategy-driven</h3>
+            <p>We build around your offer, customer journey, and the outcome you want your website to create.</p>
+          </article>
 
-          <div class="card">
+          <article class="card">
             <div class="service-icon">⌁</div>
-            <h3>High-end visuals</h3>
-            <p>Clean, premium interfaces that help your brand feel professional and memorable.</p>
-          </div>
+            <h3>Premium visuals</h3>
+            <p>Thoughtful design decisions create trust, clarity, and a more memorable first impression.</p>
+          </article>
 
-          <div class="card">
+          <article class="card">
             <div class="service-icon">↗</div>
-            <h3>Return-focused execution</h3>
-            <p>Every element is built to support trust, clarity, and genuine business growth.</p>
-          </div>
+            <h3>Growth focused</h3>
+            <p>Every section is crafted to move users from curiosity to action—without unnecessary friction.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -877,34 +258,34 @@
       <div class="container">
         <div class="section-head">
           <h2>Client feedback</h2>
-          <p>Our clients come to us for design and stay for the clarity, confidence, and results.</p>
+          <p>Our clients value clarity, quality, and websites that help them look more credible from day one.</p>
         </div>
 
         <div class="testimonials">
           <div class="quote">
-            <p>"CD transformed our business website into something far more premium and persuasive. We started getting more qualified leads within weeks."</p>
+            <p>“CD completely elevated our online presence. The new site feels premium, clear, and more persuasive for our ideal clients.”</p>
             <div class="person">
               <div class="avatar">A</div>
               <div>
                 <strong>Amelia R.</strong>
-                <small>Founder, Northlane Studio</small>
+                <small>Founder, Northlane</small>
               </div>
             </div>
           </div>
 
           <div class="quote">
-            <p>"The process was smooth, strategic, and highly professional. The final site looks incredible and speaks directly to our audience."</p>
+            <p>“The process was super professional and strategic. We launched with a site that finally matched the quality of our service.”</p>
             <div class="person">
               <div class="avatar">K</div>
               <div>
                 <strong>Kenneth M.</strong>
-                <small>Marketing Lead, FlowPilot</small>
+                <small>Marketing Lead</small>
               </div>
             </div>
           </div>
 
           <div class="quote">
-            <p>"We wanted a site that felt trustworthy and modern. CD delivered exactly that, and the user experience is outstanding."</p>
+            <p>“From the first meeting to launch, everything felt carefully considered. The result looks polished and performs much better.”</p>
             <div class="person">
               <div class="avatar">S</div>
               <div>
@@ -921,8 +302,8 @@
       <div class="container">
         <div class="cta-box">
           <div>
-            <h2>Let's build your next website.</h2>
-            <p>Whether you need a new brand site or a smarter conversion-focused landing page, CD is ready to help.</p>
+            <h2>Let’s build your next website.</h2>
+            <p>Whether you need a new brand presence or a sharper conversion-focused launch page, CD is ready to help.</p>
           </div>
           <a href="mailto:hello@cdstudio.com" class="btn btn-primary">hello@cdstudio.com</a>
         </div>
@@ -937,13 +318,16 @@
         <span>CD Studio</span>
       </div>
       <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#work">Work</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
       </div>
       <div>© 2026 CD Studio</div>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
